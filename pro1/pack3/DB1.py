@@ -18,6 +18,13 @@ try:
 
     # 자료 입력
     cur.execute("insert into friends values('홍길동', '222-2222', '서초1동')")
+
+    cur.execute("insert into friends values(?, ?, ?)", ('신기해', '333-3333', '역삼2동'))
+    
+    inputdatas = ('신기한', '333-4444', '역삼2동')
+    cur.execute("insert into friends values(?, ?, ?)", inputdatas)
+    conn.commit()
+    
     
 except Exception as e:
     print('err : ', e)
