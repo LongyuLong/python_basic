@@ -25,8 +25,18 @@ try:
     cur.execute("insert into friends values(?, ?, ?)", inputdatas)
     conn.commit()
     
-    
+    # 자료 보기
+    cur.execute("select * from friends")
+    # print(cur.fetchone())                                 # fetchone : 한 개의 레코드(행) 읽기
+    print(cur.fetchall())                                 # fetchall : 모든 레코드(행) 읽기
+    print()
+    cur.execute("select name, addr, phone from friends")    # select로 불러올 때는 원본 컬럼 순서 상관없다.
+    for r in cur:
+        print(r)
+        print(r[0] + ' ' + r[1] + ' ' + r[2])
+        
 except Exception as e:
     print('err : ', e)
+    conn.rollback()
 finally:
-    pass
+    conn.close()
