@@ -20,7 +20,7 @@ nai = params.get("age", [""])[0]
 print("Content-Type: text/html; charset=utf-8")
 print()
 print("""
-<html lang="ko">
+<html lang="kr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
