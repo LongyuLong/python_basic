@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Tag: 문서의 구조와 형태를 표현하는 명령어로 <> 안에 적는다<br/>
+    <br/>aaa &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; bbb <br/><br/>
+    aaa
+
+    -- 출력 형태에 태그 종류 --<br>
+    1) block 방식: 행 분리가 이루어짐. p, h, div, ol, li ...<br>
+    2) inline 방식: 같은 행에 계속 출력. b, i, span ...              
+    
+<hr>                        <!-- <hr>은 수평 분리 선을 삽입한다-->
+<p><b>문단 나누기</b></p>    <!-- 블럭끼리는 서로 포함할 수 있지만, inline 방식은 그렇지 않다-->    
+<i>이탤릭으로 표시</i>
+<h1>표제용 제목, 가장 큼</h1>
+<h6>표제용 제목, 가장 작음</h6>
+<div style="background-color: yellow">구역 설정 태그 div(행 전체)</div>good
+<span style="background-color: silver">구역 설정 태그 span(일부 영역)</span>good
+<b>&lt;특수문자 표시&gt;</b><br>
+<hr size="10" width="200" color="blue">         <!-- 태그에 속성을 부여할 수 있다-->
+<hr width="60%" color="#0000ff">
+<pre>
+    내가 입력한
+    대로 그  대  로
+    보    여     줘
+</pre>
+<br>
+---- 목록 만들기 ----
+<ul>
+<li>Python</li>
+<li>MariaDB</li>
+</ul>
+
+<ol>
+<li>Python</li>
+<li>MariaDB</li>
+    <ul>
+    <li>Python</li>
+    <li>MariaDB</li>
+    </ul>
+</ol>
+
+</body>
+</html>
+
+
+
+
