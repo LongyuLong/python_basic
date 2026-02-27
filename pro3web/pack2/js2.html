@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    --- 변수와 연산자 ---<br>
+    <script type="text/javascript">
+        let aa;                                 // 변수 선언. var도 가능하지만 예전 방식
+        aa = 100;
+        let bb = 20.5;
+        const cc = 300;                         // const: 상수로 사용하는 변수 선언 방식
+        
+        let dd = false;
+        let msg = "변수 선언 이해"
+        
+        
+        document.write(aa,", ", bb, ", ", cc, ", ", msg);
+        document.write("<hr>")                  // 자바에서 수평선 긋기
+        document.write("type 확인: ", typeof(1), ', ', typeof(1.5), ', ', typeof('안녕'), ', ', 
+                    typeof(true), ', ', typeof(null), ', ', typeof(undefined)
+                        )
+        {   // 영역 확보
+            let v1 = 1;
+            {
+                let v2 = 2;
+                {
+                    let v3 = 3;
+                }
+            }
+        }
+        document.write("<br>", v1, ', ', v2, ', ', v3)
+    </script>
+    <br>---- 연산자 ---- <br>
+    <script>
+        let x = 5, y = 2;
+        document.write("<br>변수 출력: ", x, ", ", y)
+        document.write("<br>산술 연산(+,/,%): ", x+y, ", ", x/y, ", ", x % y)
+        document.write("<br>관계(비교) 연산: ", x>y, ", ", x<=y, ", ", x == y, ', ', x!=y)
+        document.write("<br>논리 연산(&&-and, ||-or): ", x > y && x<=y, ", ", x > y || x<=y)
+        document.write("<br>누적 연산: ", x = x+1, ", ", ++x, ", ", x += 1)
+        document.write("<br>삼항 연산: ", (x > y)?1000:1000+2000) // 조건이 참이면 1000, 거짓이면 1000+2000 실행
+    
+        document.write("<br><br>문자열 더하기<br>"+"a"+"b"+"c") // 문자열 더하기
+
+        let m, b, c;
+        m = b = c = 6 + 5;
+        document.write("<br><br>할당연산 체이닝<br>", m, " ", b, " ", c)
+        
+        
+    </script>
+
+    
+</body>
+</html>
+
+
