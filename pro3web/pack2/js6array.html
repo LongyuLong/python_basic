@@ -49,7 +49,7 @@
             console.log(dd[m])
         }
 
-        document.write("<br>");
+        document.write("<br>");document.write("<br>");document.write("<br>");
         let myarr = 
             [
                 '안녕', true, 3.5, {name:'신기해'},
@@ -63,9 +63,49 @@
         document.write("<br>");
         myarr[4]()
         
-        document.write("<br>");
+        document.write("<br>");document.write("<br>");
+
+        let korea = ['연필', '지우개', '노트'];             // 배열 요소 출력 (for문 사용)
+        // 방법 1)
+        for(let i=0; i < korea.length; i++)
+        {
+            document.write(korea[i] + " ")
+        }
+        document.write("<br>");document.write("<br>");
+        // 방법 2)
+        for(let i of korea)
+        {
+            document.write(i + " ")
+        }
+        document.write("<br>");document.write("<br>");
+        // 방법 3)
+        for(let i in korea)
+        {
+            document.write(korea[i] + " ")
+        }
+        document.write("<br>");document.write("<br>");
+
+        // 배열 요소 제거: delete, splice
+        let ar = ['i', 'go', 'home'];
+        delete ar[1];                                          // 'go' 삭제. 하지만 '자리'는 남는다.
+        ar.splice(2,2);                                        // 'go' 삭제. '자리'도 삭제한다. -> ar.length 값 변화
+        document.write(ar, " ", ar.length);
+        document.write("<br>");document.write("<br>");
+
+        // 구조 분해 할당: 배열, 객체의 값들을 추출하여 한 번에 여러 변수에 할당함
+        let nums = [1,2,3,4];
+        let [a1, a2, a3] = nums;
+        document.write(`${a1} ${a2} ${a3}`)
+        document.write("<br>");document.write("<br>");
+
+        // 전개 연산자: ...
+        const fruits = ['apple', 'peach', 'melon'];
+        const imsi = [...fruits];                              // 배열에 담기
+        document.write(imsi);
         
-        
+
+
+
     </script>
 </body>
 </html>
