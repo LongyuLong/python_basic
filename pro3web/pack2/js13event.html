@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function func1()
+        {
+            document.getElementById("show").innerHTML = "전통적인 이벤트 처리"
+        }
+        let a = 10;
+        let b = {
+            funcNew1:function()
+            {
+                document.getElementById("show").innerHTML = "b 객체의 메소드 처리"
+            } ,
+            funcNew2:function()
+            {
+                document.getElementById("show").innerHTML = "<h1>b 객체의 멤버 수행</h1>"
+            }
+        }
+    </script>
+    <script>
+        window.onload = function()
+        {   // 서버로부터 문서 수신이 완료되면 함수 수행(일회용, 초기화 담당, callback 함수)
+            
+            const exBtn1 = document.getElementById("btn1"); // 버튼을 읽어 변수에 저장
+            exBtn1.onclick = function(){    // 이벤트 장착
+                document.getElementById("show").innerHTML = "클릭1 선택";
+            }
+
+            const exBtn2 = document.getElementsByName("myBtn"); // 배열에 기억
+            console.log(exBtn2,length)      // 길이를 확인해보면 길이 2의 배열임을 확인할 수 있다.              
+            exBtn2[0].onclick = function()
+            {
+                document.getElementById("show").innerHTML = "<i>클릭2 누름</i>";
+            }
+            exBtn2[1].onclick = function()
+            {
+                document.getElementById("show").innerHTML = "<i>클릭3 누름</i>";
+            }
+
+            const exBtn4 = document.getElementsByTagName("button")[3];
+            exBtn4.onclick = function()
+            {
+                document.getElementById("show").innerHTML = "<b>클릭4 누름</b>";
+            }
+        
+            // 이벤트 연결 및 해제
+            // addEventListener("이벤트 종류", 핸들러 함수): 걸었다가 해제도 가능하다
+            document.getElementById("btn5").addEventListener("click",abcFunc);
+        }
+        
+        function abcFunc()
+        {
+            document.getElementById("show").innerHTML = "<b><i>클릭5 누름</b></i>";
+            document.getElementById("btn5").removeEventListener("click", abcFunc); 
+            // 이벤트 해제 이후 다른 버튼을 클릭하고 클릭5를 누르더라도 어떤 출력값도 나오지 않는다.
+        }
+    </script>
+</head>
+<body>
+    <h2>이벤트 처리</h2>
+    <input type="button" value="버튼1" onclick="func1()"><br>
+    <input type="button" value="버튼2" onclick="b.funcNew1()"><br>
+    <input type="button" value="버튼3" onclick="b.funcNew2()"><br>
+    <hr>
+    <button id="btn1">클릭1</button><br>
+    <button id="btn2" name="myBtn">클릭2</button><br>
+    <button id="btn3" name="myBtn">클릭3</button><br>
+    <!-- 이름이 똑같으면 배열이 된다. -->
+    <button id="btn4">클릭4</button><br>
+    <button id="btn5">클릭5</button><br>
+    <div id="show"></div>
+    <!-- 버튼 눌렀을 때 출력될 영역 생성 -->
+</body>
+</html>
