@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = () => // window.onload = function(){} 와 같은 표현
+        {
+            document.getElementById("colorW").onclick = function()
+            {
+                document.bgColor = "white";
+            }
+            document.getElementById("colorG").onclick = function()
+            {
+                document.bgColor = "green";
+            }
+            document.getElementById("colorR").onclick = function()
+            // document.querySelector("#colorR").onclick = () => 로도 표현할 수 있다.
+            {
+                //document.bgColor = "red";
+                document.body.style.backgroundColor = "red";
+            }
+            document.querySelector(".hello").onclick = () =>
+            {
+                document.querySelector("#show").innerText = "hi"
+            }
+            document.querySelector("#calc").ondblclick = () =>
+            {
+                let ss = `연산 결과는 ${10 + 20}`;
+                document.querySelector("#show").innerText = ss;
+            }
+            document.querySelector("#name").onmouseover = () =>
+            {
+                document.querySelector("#show").innerText = "마우스 올렸다";
+            }
+            document.querySelector("#name").onmouseout = () =>
+            {
+                document.querySelector("#show").innerText = "";
+            }
+            // a tag: click 이벤트가 기본 장착되어있다. ex. a href
+            document.querySelector("#daum").onclick = function(event)
+            {
+                event.preventDefault();     
+                // 해당 태그의 고유 기능 삭제(ex. a tag, submit, reset ..)
+                // 페이지에서 "앵커 태그 클릭"을 클릭하더라도 지정된 링크로 이동하지 않는다.
+                console.log(event)
+            }
+            // select
+            const sdata = document.querySelector("#sel");
+            // sdata.onclick = function()  // 항목 선택 시 이벤트 발생
+            // {
+            //     document.querySelector("#show").innerText = sdata.value;
+            // }
+            sdata.onchange = function()  // onclick 대신 onchange -> 항목이 바뀌면 이벤트 발생. onchange가 대중적
+            {
+                document.querySelector("#show").innerText = sdata.value;
+            }
+        }
+    </script>
+</head>
+<body>
+    * 여러 이벤트 경험하기 *<br>
+    <input type="button" value="백색" id="colorW">
+    <!-- <input type="button" value="녹색" id="colorG"> -->
+    <!-- <input type="button" value="적색" id="colorR"> -->
+    <span id="colorG">녹색</span>
+    <b id="colorR" style="border: 2px solid black; cursor: pointer;">적색</b>
+    <hr>
+    <button id="hello" class="hello">인사하기(click)</button>
+    <button id="calc">계산하기(double click)</button>
+    <button id="name">이름알기(mouse over)</button>
+    <br><hr>
+    <select id="sel">
+        <option value="프로그래머">프로그래머</option>
+        <option value="웹퍼블리셔">웹퍼블리셔</option>
+        <option value="프로게이머">프로게이머</option>
+    </select>
+    <hr>
+    <a href="https://m.daum.net" id="daum">앵커 태그 클릭</a>
+    <br>
+    <hr>
+    <div id="show">출력장소</div>
+</body>
+</html>
