@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script id="formCheck">
+
+    </script>
+    <h2>로그인</h2>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}           <!-- flash 메세지 출력 관련 코드 -->
+        <ul>
+            {% for m in messages %}
+                <li>{{m}}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    {% endwith %}
+
+    <form action="{{url_for('formCheck')}}" method="get">
+        <p>아이디: <input id = name></p>
+        <p>비밀번호: <input password = password></p>
+        <button type="submit">로그인</button>
+    </form>
+
+</body>
+</html>
