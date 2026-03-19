@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <script>
+        let hap = 0;
+        const scores = [85, 92, 78, 90, 88];
+        
+        let sumFunc = () =>
+        {
+            
+            scores.forEach((score) =>
+            {
+            hap += score;
+        });
+            
+        }
+        sumFunc()
+        document.write(`총점: ${hap}`)
+    </script>
+</body>
+</html>

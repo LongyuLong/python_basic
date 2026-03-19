@@ -1,0 +1,6 @@
+/* style.css */
+body{margin: 24px;}
+button{padding: 8px 12px; margin-top: 8px;}
+/* 8, 12면 좌우각각 */
+#result{margin-top: 20px; padding: 10px; border: 1px dotted #ddd;}
+.error{color: red;}
