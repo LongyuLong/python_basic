@@ -1,0 +1,23 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {{jikwondata | safe}}
+    <hr>
+    {{statsdata | safe}}
+    <hr>
+    {{graph | safe}}
+    <img src="/static/graph.png">
+    <hr>
+
+    <h2>4) 성별·직급별 빈도표</h2>
+    {{gender | safe}}
+    <img src="/static/graph_gender.png">
+    <hr>
+</body>
+</html>

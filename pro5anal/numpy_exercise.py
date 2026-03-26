@@ -44,14 +44,36 @@ print()
 b = np.where((a%3 == 0) & (a%5 != 0))
 print(a[b[0]])
 
+for i in range(len(b)):
+    c = a[b[i]]**2
+
+print(c)
+
 # Q4) 다음과 같은 배열이 있다고 할 때,
-# arr = np.array([15, 22, 8, 19, 31, 4])
+arr = np.array([15, 22, 8, 19, 31, 4])
 # 값이 10 이상이면 'High', 그렇지 않으면 'Low'라는 문자열 배열로 변환하시오.
 # 값이 20 이상인 요소만 -1로 바꾼 새로운 배열을 만들어 출력하시오. (원본은 유지)
 # 힌트: np.where(), np.copy()
+print()
+print("--------- Q4 ---------")
+# np.where(arr >= 10, 'High', 'Low') 로 푸는게 더 합리적?
+High_index = np.where(arr>=10)
+High = arr[High_index[0]]
+print(High)
+Low_index = np.where(arr<10)
+Low = arr[Low_index[0]]
+print(Low)
 
-
+New_index = np.where(arr>=20)
+New = np.copy(arr)
+New[New_index] = -1
+print(New)
 
 
 # Q5) 정규분포(평균 50, 표준편차 10)를 따르는 난수 1000개를 만들고, 상위 5% 값만 출력하세요.
 # 힌트 :  np.random.normal(), np.percentile()
+print()
+print("--------- Q5 정규분포(평균 50, 표준편차 10)를 따르는 난수 1000개를 만들고, 상위 5% 값만 출력하세요. ---------")
+arr = np.random.normal(50,10,1000)
+five = np.percentile(arr,95)
+print("상위 5% 값: ",five)
