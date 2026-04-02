@@ -40,3 +40,31 @@ if response.status_code == 200:
     
     print('word_dict: ', word_dict)
 
+    print("--------Series로 출력---------")
+    series_list = pd.Series(wordlist)       # list 자료형으로 Series 만들고
+    print(series_list[:3])                  # 시리즈 3개?
+    print(series_list.value_counts()[:5])   # 시리즈_list에서 5개 보기
+    print()
+    series_dict = pd.Series(word_dict)
+    print(series_dict[:3])
+    print(series_dict.value_counts()[:5])   # 시리즈_dict에서 5개 보기
+
+    print("--------DataFrame으로 출력---------")
+    df1 = pd.DataFrame(wordlist, columns=['단어'])
+    print("df1.head(3)")
+    print(df1.head(3))
+    print()
+    df2 = pd.DataFrame([word_dict.keys(), word_dict.values()])
+    df2 = df2.T
+    df2.columns = ['단어', '빈도수']
+    print("df2.head(3)")
+    print(df2.head(3))
+
+    df2.to_csv('nlp_morph2.csv', index=False)
+    df3 = pd.read_csv('nlp_morph2.csv')
+    print(df3.head())
+
+    
+
+
+
