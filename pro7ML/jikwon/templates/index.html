@@ -1,0 +1,55 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>근무 연수로 연봉 예상하기</h2>
+    <div>
+        <input type="number" id="year"/>
+        <button id="sendBtn">조회</button>
+    </div>
+    <div id="result"></div>  <!-- ① script를 밖으로 뺌 -->
+
+    <script>
+        document.getElementById("sendBtn").addEventListener("click", sendFunc);
+
+        async function sendFunc()
+        {
+            const years = document.getElementById("year").value;
+
+            try
+            {
+                const response = await fetch("/api/predict?years=" + years);
+                if(!response.ok)
+                {
+                    throw new Error("서버 오류");
+                }
+                const data = await response.json();
+
+                let output = "예상연봉액: <b>" + data.salary + "</b><br>";
+                output += "설명력(R): " + data.r2 + "<br>";
+                output += "회귀식: " + data.formula + "<br><br>";
+
+                output += "<table><tr><th>직급</th><th>평균 연봉</th></tr>";
+                data.jikavg.forEach(item =>   /* ② Object.keys 제거, 노션 패턴 forEach 사용 */
+                    {
+                        output += "<tr><td>" + item.jik + "</td><td>" + item.pay + "</td></tr>";
+                    }
+                );
+                output += "</table>";
+
+                document.getElementById("result").innerHTML = output;
+            }
+            catch(error)
+            {
+                document.getElementById("result").innerHTML = "에러: " + error.message;
+            }
+        }
+    </script> 
+</body>
+</html>
